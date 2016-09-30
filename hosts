@@ -1,0 +1,6 @@
+[webservers]
+10.0.0.20
+[tomcat-servers]
+webserver1
+[wordpress-server]
+webserver2

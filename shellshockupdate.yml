@@ -1,0 +1,7 @@
+---
+- hosts: all
+  sudo: yes
+  roles:
+    - { role: apt-update, when: "ansible_os_family == 'Debian'" }
+    - { role: yum-update, when: "ansible_os_family == 'RedHat'" }
+
