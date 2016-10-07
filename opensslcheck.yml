@@ -1,7 +1,8 @@
 ---
 - hosts: securityfix_servers
   gather_facts: true
-  sudo: true
+  become: yes
+  become_method: sudo
   vars:
     vulnerable_releases:
         '5': '0.9.8e-37.el5_11'
