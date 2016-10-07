@@ -1,0 +1,42 @@
+---
+- hosts: securityfix_servers
+  gather_facts: true
+  sudo: true
+  vars:
+    vulnerable_releases:
+        '5': '0.9.8e-37.el5_11'
+        '6': '1.0.1e-42.el6_7.2'
+        '7': '1.0.1e-51.el7_2.2'
+
+  tasks:
+        - name: check for openssl version
+          shell: rpm -q --qf "%{VERSION}-%{RELEASE}" openssl-libs.{{ansible_architecture}}
+          register: openssl_version
+         
+        - name: check for vulnerable versions
+          debug: msg="OpenSSL version  is vulnerable."
+          when: openssl_version.stdout|version_compare(vulnerable_releases[ansible_distribution_major_version], '<=')
+          register: is_vuln
+    
+        - name: update openssl from yum if vulnerable
+          yum: name=openssl-libs state=latest update_cache=yes
+          when: not is_vuln|skipped
+          notify: restart_system
+          register: installed
+    
+        - name: check for openssl version
+          shell: rpm -q --qf "%{VERSION}-%{RELEASE}" openssl-libs.{{ansible_architecture}}
+          register: openssl_version
+          when: not is_vuln|skipped
+         
+        - name: check that we are no longer vulnerable
+          debug: msg="OpenSSL version  is still vulnerable!"
+          when: not is_vuln|skipped
+          failed_when: openssl_version.stdout|version_compare(vulnerable_releases[ansible_distribution_major_version], '<=')
+         
+  handlers:
+        - name: restart_system
+          shell: sleep 2 && shutdown -r now "Ansible updates triggered"
+          async: 1
+          poll: 0
+          ignore_errors: true
