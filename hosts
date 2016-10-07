@@ -1,6 +1,13 @@
-[webservers]
-10.0.0.20
+[securityfix_servers]
+
+10.0.0.40
+
+10.0.0.30
+
 [tomcat-servers]
-webserver1
+
+10.0.0.45
+
 [wordpress-server]
-webserver2
+
+10.0.0.41
