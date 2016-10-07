@@ -20,6 +20,9 @@
 - name: Create MariaDB log file
   file: path=/var/log/mysqld.log state=touch owner=mysql group=mysql mode=0775
 
+- name: Start firewalld service
+  command: systemctl start firewalld 
+
 - name: Start MariaDB Service
   service: name=mariadb state=started enabled=yes
 
