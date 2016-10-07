@@ -56,8 +56,5 @@
 - name: set the SELinux on all the Files
   command: restorecon -Rv /srv/wordpress
 
-- name: Start firewalld service
-  command: systemctl start firewalld
-
 - name: Start php-fpm Service
   service: name=php-fpm state=started enabled=yes
