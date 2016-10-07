@@ -1,0 +1,43 @@
+- hosts: all
+  gather_facts: true
+  become_method: sudo
+  become_user: root
+  vars:
+    service_name:
+      'Debian': 'smbd'
+      'RedHat': 'smb'
+
+  tasks:
+    - name: check samba version
+      shell: dpkg -l | grep -q samba
+      when: ansible_os_family == 'Debian'
+      register: samba_installed
+      ignore_errors: True
+
+    - name: update samba from apt if installed
+      apt:
+        name: samba
+        state: latest
+        update_cache: yes
+      when: ansible_os_family == 'Debian' and samba_installed.rc == 0
+      notify: restart_samba
+
+    - name: check samba version
+      shell: rpm -q samba
+      when: ansible_os_family == 'RedHat'
+      register: samba_installed
+      ignore_errors: True
+
+    - name: update samba from yum if installed
+      yum:
+        name: samba
+        state: latest
+        update_cache: yes
+      when: ansible_os_family == 'RedHat' and samba_installed.rc == 0
+      notify: restart_samba
+
+  handlers:
+    - name: restart_samba
+      service:
+        name: "{{ service_name[ansible_os_family] }}"
+        state: restarted
