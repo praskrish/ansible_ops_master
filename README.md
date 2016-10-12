@@ -1,43 +1,44 @@
-Lab Instructions to work with Ops Playbooks
-
-Playbook # 1
-VALIDATE OS SECURITY VULNERABILITIES - ~10min
-
+Lab Credentials
+---------------
+Ansible Tower
 Login to Ansible Tower machine
+https://tower-GUID.rhpds.opentlc.com
+Two roles:
+admin / r3dh4t1!
+user / passw0rd
+Verify Tower
+$ansible-tower-service status
+$ tower-manage changepassword admin
 
-Browse to: https://tower-GUID.rhpds.opentlc.com
-Browse Projects
-Ansible projects containing playbooks
 
-ansible Ops
+Test Ops Jobs
+--------------
 
-Browse Inventories
+Add Hosts
+ -Inventories - Security Vulnerability … - SecurityFix_Servers - Add Host
+ -rhel1.example.com, rhel2.example.com
 
-Hosts which playbooks are applied to, can be static (demonstrated) and dynamic (i.e. ec2, pre-built scripts, custom)
+ -Inventories - Tomcat Servers - Add Host
+ -rhel4.example.com
 
 Click on "JOB TEMPLATES" 
-Job Templates: Check OS Security Vulnerabilities
-
-Start job (rocket)
+Playbook #1: Check Open SSL Vulnerability 
+Start job (rocket) 
 Watch job - wait until the job status is: Successful
 
-Playbook #2
-SETUP TOMCAT STANDALONE
-
-Job Templates: Deploy Tomcat Standalone
-Start job (rocket)
-watch job - wait until the job status is: Successful
+Playbook #2: SETUP TOMCAT STANDALONE
+Deploy Tomcat Standalone Start job (rocket) 
+watch job - wait until the job status is: Successful 
 Web Browser: Test Tomcat Home page
+http://rhel4-GUID.rhpds.opentlc.com:8080/
 
-Playbook #3
-
-SETUP WORDPRESS APP with NGINX and Maria DB
-Job Templates: eap domain - setup infrastructure - modify
-
-start job (rocket)
+Playbook #3: Setup Wordpress App.
+Inventories - Wordpress App Server - Add Host
+rhel3.example.com
+Click on "JOB TEMPLATES" 
+Playbook #1: WORDPRESS APP
+Start job (rocket) 
+Watch job - wait until the job status is: Successful
 Web Browser: Test Wordpress App
+http://rhel3-GUID.rhpds.opentlc.com/wp-admin/install.php
 
-Pre-requisites
-
-Red Hat Customer Support Portal credentials
-Red Hat Subscription - like JBoss NFR
