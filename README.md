@@ -18,11 +18,12 @@ Test Ops Jobs
 --------------
 
 - Add Hosts
- Inventories - Security Vulnerability … - SecurityFix_Servers - Add Host
+ Click on Inventories/Security Vulnerability/SecurityFix_Servers
+ Add Host
  rhel1.example.com, rhel2.example.com
 
- -Inventories - Tomcat Servers - Add Host
- -rhel4.example.com
+ Click on Inventories/Tomcat Servers/Add Host
+ rhel4.example.com
 
 Click on "JOB TEMPLATES" 
 Playbook #1: Check Open SSL Vulnerability 
