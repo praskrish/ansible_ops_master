@@ -18,31 +18,31 @@ $ tower-manage changepassword admin
 
 ###Add Hosts for Playbook Usage
  
-- Click on Inventories/Security Vulnerability/SecurityFix_Servers
-  Add Host
+- Click on Inventories/Security Vulnerability/SecurityFix_Servers/
+  Add Host:
   rhel1.example.com, rhel2.example.com
 
-- Click on Inventories/Tomcat Servers/Add Host
+- Click on Inventories/Tomcat Servers/Add Host:
   rhel4.example.com
+  
+- Click on Inventories/Wordpress App Server/Add Host:
+  rhel3.example.com
   
 ##Run Playbooks
 
 ###Click on "JOB TEMPLATES" 
+
 Playbook #1: Check Open SSL Vulnerability 
 Start job (rocket) 
 Watch job - wait until the job status is: Successful
 
-Playbook #2: SETUP TOMCAT STANDALONE
-Deploy Tomcat Standalone Start job (rocket) 
+Playbook #2: Setup Tomcat Standalone
+Start job (rocket) 
 watch job - wait until the job status is: Successful 
 Web Browser: Test Tomcat Home page
 http://rhel4-GUID.rhpds.opentlc.com:8080/
 
 Playbook #3: Setup Wordpress App.
-Inventories - Wordpress App Server - Add Host
-rhel3.example.com
-Click on "JOB TEMPLATES" 
-Playbook #1: WORDPRESS APP
 Start job (rocket) 
 Watch job - wait until the job status is: Successful
 Web Browser: Test Wordpress App
