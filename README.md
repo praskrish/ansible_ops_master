@@ -1,12 +1,15 @@
 #Lab Credentials
 
 ##Ansible Tower
-Login to Ansible Tower machine
+
+- Login to Ansible Tower machine
 https://tower-GUID.rhpds.opentlc.com
-Two roles:
+
+- Two roles:
 admin / r3dh4t1!
 user / passw0rd
-Verify Tower
+
+- Verify Tower
 $ansible-tower-service status
 $ tower-manage changepassword admin
 
