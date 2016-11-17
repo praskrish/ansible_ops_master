@@ -1,6 +1,6 @@
-#Lab Credentials
+#Ansible Ops Playbook Setup and Execution
 
-##Ansible Tower
+##Ansible Tower Login Credentials
 
 - Login to Ansible Tower machine
 https://tower-GUID.rhpds.opentlc.com
@@ -14,7 +14,7 @@ $ansible-tower-service status
 $ tower-manage changepassword admin
 
 
-Test Ops Jobs
+##Test Ansible Ops Jobs in Tower
 
 ###Add Hosts for Playbook Usage
  
@@ -25,7 +25,7 @@ Test Ops Jobs
 - Click on Inventories/Tomcat Servers/Add Host
   rhel4.example.com
   
-###Run Playbooks
+##Run Playbooks
 
 ###Click on "JOB TEMPLATES" 
 Playbook #1: Check Open SSL Vulnerability 
