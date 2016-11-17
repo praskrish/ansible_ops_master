@@ -15,9 +15,8 @@ $ tower-manage changepassword admin
 
 
 Test Ops Jobs
---------------
 
-##Add Hosts for Playbook Usage
+###Add Hosts for Playbook Usage
  
 - Click on Inventories/Security Vulnerability/SecurityFix_Servers
   Add Host
@@ -25,8 +24,10 @@ Test Ops Jobs
 
 - Click on Inventories/Tomcat Servers/Add Host
   rhel4.example.com
+  
+###Run Playbooks
 
-Click on "JOB TEMPLATES" 
+###Click on "JOB TEMPLATES" 
 Playbook #1: Check Open SSL Vulnerability 
 Start job (rocket) 
 Watch job - wait until the job status is: Successful
