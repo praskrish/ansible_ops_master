@@ -1,6 +1,6 @@
 #Lab Credentials
----------------
-Ansible Tower
+
+##Ansible Tower
 Login to Ansible Tower machine
 https://tower-GUID.rhpds.opentlc.com
 Two roles:
