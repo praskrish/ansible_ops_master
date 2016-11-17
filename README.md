@@ -17,9 +17,9 @@ $ tower-manage changepassword admin
 Test Ops Jobs
 --------------
 
-Add Hosts
- -Inventories - Security Vulnerability … - SecurityFix_Servers - Add Host
- -rhel1.example.com, rhel2.example.com
+- Add Hosts
+ Inventories - Security Vulnerability … - SecurityFix_Servers - Add Host
+ rhel1.example.com, rhel2.example.com
 
  -Inventories - Tomcat Servers - Add Host
  -rhel4.example.com
