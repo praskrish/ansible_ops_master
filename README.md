@@ -30,7 +30,7 @@ $ tower-manage changepassword admin
   
 ##Run Playbooks
 
-###Click on "JOB TEMPLATES" 
+###Click on "Job Templates" 
 
 Playbook #1: Check Open SSL Vulnerability 
 Start job (rocket) 
